@@ -1,4 +1,4 @@
-## This app is demo and under development
+## This app is demo  
 
 #### Run app
 ```

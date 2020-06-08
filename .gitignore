@@ -1,2 +1,4 @@
+# dependencies
 node_modules
+# playground file
 src/test.js

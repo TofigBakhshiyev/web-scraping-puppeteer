@@ -7,7 +7,7 @@ const ebay = require('./ebay')
 const port = process.env.PORT || 4040
 
 app.get('/', (req, res) => {
-    res.send('Add search term to url "/:search"')
+    res.send('<p>Add search term to url "/:search"<p/>')
 })
 
 app.get('/:search', async (req, res) => { 

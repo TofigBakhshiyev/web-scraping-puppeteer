@@ -1,15 +1,18 @@
 const express = require('express') 
 const app = express()
+var cors = require('cors')
+
+app.use(cors())
 
 const amazon = require('./amazon')
 const ebay = require('./ebay')
 
 const port = process.env.PORT || 4040
 
-app.get('/', (req, res) => {
-    res.send('<p>Add search term to url "/:search"<p/>')
+app.get('/', async (req, res) => {
+    await res.send("Add search term to end of the url /'term', for example http://localhost:4040/cup")
 })
-
+  
 app.get('/:search', async (req, res) => { 
     // get parameter from url
     let search = req.params.search
@@ -20,9 +23,9 @@ app.get('/:search', async (req, res) => {
     let products_amazon = await amazon(url_amazon)
     let products_ebay = await ebay(url_ebay)
     // send all scraping data to client
-    res.send({ 
-        'amazon': products_amazon,
-        'ebay': products_ebay
+    await res.send({ 
+        amazon: products_amazon,
+        ebay: products_ebay
     })   
 })
 

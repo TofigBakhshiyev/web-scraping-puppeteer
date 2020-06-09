@@ -15,10 +15,9 @@ let ebay = async(url) => {
         
         // evaluate the page
         const products = await page.evaluate(() => {
-            // gets all items with span tag
+            // gets all items with div tag
             const items = Array.from(document.querySelectorAll('div[class="s-item__info clearfix"]'))
             return items.map(item => {
-                // textContent does not write null gives error because of that if else is needed
                 return {
                     name: item.querySelector('h3').innerText,
                     price: item.querySelector('.s-item__price').innerText,

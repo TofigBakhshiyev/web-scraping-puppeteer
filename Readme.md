@@ -1,7 +1,7 @@
 ## Web Scraping with Puppeteer 
 This App scraps data from Amazon and Ebay
 #### Run app
-In the client and sever directory run
+In the frontend and sever directory run
 ```
 npm install
 ```

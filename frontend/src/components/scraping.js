@@ -41,6 +41,7 @@ export default class Scraping extends React.Component {
             <ul class="list-group">
               {this.state.amazon.map(s => (
                 <li class="list-group-item">
+                  <img src={`${s.img}`} class="rounded float-right" alt="..."/> 
                   <h1 id="amazon_title">Amazon</h1>
                   <h3>{s.name}</h3>
                   <p>{s.price}</p>
@@ -57,8 +58,9 @@ export default class Scraping extends React.Component {
           <div class="ebay"> 
             <ul class="list-group">
                 {this.state.ebay.map(s => (
-                  <li class="list-group-item">
+                  <li class="list-group-item"> 
                     <h1 id="ebay_title">Ebay</h1>
+                    <img src={`${s.img}`} class="rounded float-right" alt="..."/>
                     <h3>{s.name}</h3>
                     <p>{s.price}</p>
                     <a id="url" href={`${s.url}`}> 

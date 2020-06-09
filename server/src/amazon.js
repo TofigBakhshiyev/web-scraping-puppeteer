@@ -24,19 +24,20 @@ let amazon = async(url) => {
                     return {
                         name: item.querySelector('h2').innerText,
                         price: item.querySelector('.a-link-normal.a-text-normal > span[class="a-price"] > span[class="a-offscreen"]').textContent.replace(/[Count,/]/g, m => (m === '' ? '' : '')),
-                        url: item.querySelector(".a-link-normal.a-text-normal").href
+                        url: item.querySelector('.a-link-normal.a-text-normal').href,
+                        img: item.querySelector('.s-image').src
                     }; 
                 } else { 
                     // without price
                     return {
                         name: item.querySelector('h2').innerText,
                         price: 'price is not given',
-                        url: item.querySelector(".a-link-normal.a-text-normal").href,
+                        url: item.querySelector('.a-link-normal.a-text-normal').href,
+                        img: item.querySelector('.s-image').src
                     }
                 }
             })
-        }); 
-         
+        });   
         // close browser
         await browser.close()
         // send all scraping data to client
@@ -44,6 +45,6 @@ let amazon = async(url) => {
     } catch (error) {
         return ({'error': error})
     }
-}
+} 
  
 module.exports = amazon

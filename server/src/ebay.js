@@ -16,15 +16,16 @@ let ebay = async(url) => {
         // evaluate the page
         const products = await page.evaluate(() => {
             // gets all items with div tag
-            const items = Array.from(document.querySelectorAll('div[class="s-item__info clearfix"]'))
+            const items = Array.from(document.querySelectorAll('div[class="s-item__wrapper clearfix"]'))
             return items.map(item => {
                 return {
                     name: item.querySelector('h3').innerText,
                     price: item.querySelector('.s-item__price').innerText,
-                    url: item.querySelector('a').href
+                    url: item.querySelector('a').href,
+                    img: item.querySelector('.s-item__image-img').src 
                 };  
             })
-        });  
+        });   
         // close browser
         await browser.close()
         // send all scraping data to client
@@ -32,7 +33,6 @@ let ebay = async(url) => {
     } catch (error) {
         return ({'error': error})
     }
-}
- 
+} 
 
 module.exports = ebay

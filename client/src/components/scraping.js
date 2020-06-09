@@ -1,28 +1,34 @@
 import axios from "axios";
 import React from 'react';  
- 
+  
 
 export default class Scraping extends React.Component {
   constructor(props) {
     super(props)
+    // get param value
     this.routeParam = props.match.params.search;
+    // constructor for data
     this.state = {
       amazon: [],
       ebay: []
     };
   } 
   componentDidMount() {
+    // get data
     this.getUsers();  
   } 
   getUsers = async () => {
+    // request data from server
     let res = await axios.get(`http://localhost:4040/${this.routeParam}`);
     let { data } = res; 
+    // set data
     this.setState({ amazon: data.amazon, ebay: data.ebay });
   };
 
   render() {
     return (
       <div>
+        {/* Message for user */}
         {this.state.amazon.length === 0 ? ( 
           <div class="msg"> 
             <div class="circle"></div>
@@ -30,6 +36,7 @@ export default class Scraping extends React.Component {
           </div>
         ) : (
         <div class="main"> 
+          {/* listing data with map function */}
           <div class="amazon"> 
             <ul class="list-group">
               {this.state.amazon.map(s => (

@@ -1,5 +1,4 @@
-import React from 'react';  
- 
+import React from 'react';   
 
 export default class Scraping extends React.Component { 
     constructor(props) {
@@ -9,17 +8,25 @@ export default class Scraping extends React.Component {
         }
     }
     handleSearch = () => {
-        this.context.router.push(`'http://localhost:3000/scrap/${this.state.search_query}'`);
+        let url = `/scrap/${this.state.search_query}` 
+        // redirect to url 
+        this.props.history.push(url)
     }
-    queryChange = (e) => {
-        this.setState({query: e.target.value})
+    queryChange = (e) => { 
+        // get value and assign to search_query
+        this.setState({search_query: e.target.value})
     }
     render() {
         return (   
-            <div id="search">
-                <input id="form" class="form-control" type="text" placeholder="Search" value={this.state.search_query} onChange={this.queryChange} aria-label="Search"/>
-                {/* <a id="link" href="http://localhost:3000/scrap/">Link</a> */}
-                <input type="submit" value="Search" onClick={this.handleSearch} /> 
+            <div id="search"> 
+                <div class="input-group">
+                    {/* get value from input and when user change search term, also change search_query in the state */}
+                    <input type="text" class="form-control" placeholder="Search" value={this.state.search_query} onChange={this.queryChange} aria-label="Search" aria-describedby="basic-addon2"/>
+                    <div class="input-group-append">
+                        {/* when clicked, run handleSearch */} 
+                        <button type="button" class="btn btn-secondary btn-sm" onClick={this.handleSearch}>Search</button>
+                    </div>
+                </div>
             </div>
         )
     }

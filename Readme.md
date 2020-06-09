@@ -1,4 +1,4 @@
-## Web Scraping    
+## Web Scraping with Puppeteer 
 This App scraps data from Amazon and Ebay
 #### Run app
 In the client and sever directory run

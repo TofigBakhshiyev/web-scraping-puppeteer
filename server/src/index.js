@@ -22,6 +22,21 @@ app.get('/:search', async (req, res) => {
 
     let products_amazon = await amazon(url_amazon)
     let products_ebay = await ebay(url_ebay)
+
+    empty = {
+        name: 'there is not this product or app did not scrap properly',
+        price: '0',
+        url: '',
+        img: ''
+    }
+
+    // processing null data or error
+    if (products_amazon === null) {
+        products_amazon = [empty]
+    } else if (products_ebay == null) {
+        products_ebay = [empty]
+    }
+    
     // send all scraping data to client
     await res.send({ 
         amazon: products_amazon,

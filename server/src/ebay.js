@@ -31,7 +31,7 @@ let ebay = async(url) => {
         // send all scraping data to client
         return products
     } catch (error) {
-        return ({'error': error})
+        return (null)
     }
 } 
 

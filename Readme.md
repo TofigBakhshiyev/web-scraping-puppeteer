@@ -34,5 +34,5 @@ Example
 ```
 
 #### Note
-After installing, if app gives this error: `Error: Failed to launch the browser process!` <br/>
+After installing, if the app gives this error: `Error: Failed to launch the browser process!` <br/>
 Extract chrome-win.zip (`chrome-win.zip file locates in the /node_modules/puppeteer/.local-chromium/`) file to `/node_modules/puppeteer/.local-chromium/win64-776035`. If there is not any chrome-win.zip file, download chormium from this link [Chromium](https://download-chromium.appspot.com/)

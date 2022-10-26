@@ -1,7 +1,7 @@
 ## Web Scraping with Puppeteer 
 This App scraps data from Amazon and Ebay
 #### Run app
-In the frontend and sever directory, run
+In the frontend and sever directory, run these commands
 ```
 npm install
 ```
@@ -13,17 +13,17 @@ or
 npm start
 ```
 #### App Runing
-Open [http://localhost:3000](http://localhost:3000/main) to view it in the browser.<br /> 
-Open [http://localhost:4040](http://localhost:4040) to view it in the browser.<br />
+Open [http://localhost:3000](http://localhost:3000/main) <br /> 
+Open [http://localhost:4040](http://localhost:4040) <br />
 
 #### API
-App can be used like api with this url (GET)
+HTTP (GET) method example
 ```
 http://localhost:4040/:"search_term"
 ```
 
 #### Data format is JSON
-Example
+Example output
 ```
 {
     name: "Tea",
